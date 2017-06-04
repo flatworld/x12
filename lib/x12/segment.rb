@@ -76,7 +76,7 @@ module X12
           @regexp = Regexp.new(re_str)
         else
           # Simple match
-          @regexp = Regexp.new("^#{name}#{Regexp.escape(field_separator)}[^#{Regexp.escape(segment_separator)}]*#{Regexp.escape(segment_separator)}")
+          @regexp = Regexp.new("#{name}#{Regexp.escape(field_separator)}[^#{Regexp.escape(segment_separator)}]*#{Regexp.escape(segment_separator)}")
         end
         #puts sprintf("%s %p", name, @regexp)
       end
