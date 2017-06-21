@@ -32,7 +32,7 @@ module X12
     # Parses this segment out of a string, puts the match into value, returns the rest of the string - nil
     # if cannot parse
     def parse(str)
-      s = str
+      s = str.lstrip()
       #puts "Parsing segment #{name} from #{s} with regexp [#{regexp.source}]"
       m = regexp.match(s)
       #puts "Matched #{m ? m[0] : 'nothing'}"
@@ -40,8 +40,8 @@ module X12
       return nil unless m
 
       s = m.post_match
-      self.parsed_str = m[0]
-      s = do_repeats(s)
+      self.parsed_str = m[0].lstrip()
+      s = do_repeats(s.lstrip())
 
       #puts "Parsed segment "+self.inspect
       return s
